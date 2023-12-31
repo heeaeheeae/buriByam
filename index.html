@@ -101,11 +101,24 @@
                 sendMsg(); // 'Enter' 키가 눌리면 'test' 함수를 호출합니다.
             }
         }
+        function init(){
+            var chatContent = document.getElementById('chat-container');
+            var answer = '<div class="chat chat-left">'
+                + '<span class="profile profile-img-b"></span>'
+                + '<div class="chat-box">'
+                + '<p class="bubble"><img id="myImage" src="./img/hi.png" alt=""></p>'
+                + '<span class="bubble-tail"></span>'
+                + '</div>'
+                + '</div>';
 
+            chatContent.innerHTML+=answer;
+
+            chatContent.scrollTop = chatContent.scrollHeight+50;
+        }
     </script>
 </head>
 
-<body>
+<body onload="init()">
 <div id="chat-wrapper">
     <header id="chat-header">
         <h1>부리뱜</h1>

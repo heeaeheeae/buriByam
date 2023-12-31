@@ -3,10 +3,10 @@
 
 
 
-<html lang="ko" style="height: auto;max-width: 100%">
+<html lang="ko">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+
     <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
     Remove this if you use the .htaccess -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -15,10 +15,11 @@
     <meta name="description" content="">
     <meta name="author" content="sir4">
 
-
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
 
     <!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
     <link rel="stylesheet" href="css/default.css"/>
+
     <script>
 
         function sendMsg(){
@@ -39,7 +40,6 @@
             var answerContent = returnAnswer(content);
 
 
-// var answerContent ='<img id="myImage" src="./img/으엥엥.png" alt="">\n';
             var answer = '<div class="chat chat-left">'
                 + '<span class="profile profile-img-b"></span>'
                 + '<div class="chat-box">'
@@ -51,9 +51,7 @@
             chatContent.innerHTML+=answer;
 
             chatContent.scrollTop = chatContent.scrollHeight+50;
-// chatContent.scrollTop = chatContent.scrollHeight;;
         }
-
         function returnAnswer(msg){
             // if()
             if(msg.includes('전봇대')||msg.includes('ㅈㅂㄷ')||msg.includes('묶')||msg.includes('떄')||msg.includes('패버려')){
@@ -64,16 +62,39 @@
                 return '<img id="myImage" src="./img/뀽.png" alt="">';
             }else if(msg.includes('뀌')){
                 return '뀌요오오오!!';
-            }else if(msg.includes('때려')||msg.includes('콱')){
+            }else if(msg.includes('콱')){
                 return '<img id="myImage" src="./img/ㄷ.png" alt="">';
             }else if(msg.includes('이게')){
                 return '<img id="myImage" src="./img/헉.png" alt="">';
-            }else{
-                return 'ㅋㅋㅋ'
+            }else if(msg.includes('때려')){
+                return '<img id="myImage" src="./img/숨음.png" alt="">';
+            }else if(msg.includes('안녕')||msg.includes('ㅎㅇ')){
+                return '<img id="myImage" src="./img/hi.png" alt="">';
+            }
+            else{
+                let num = getRandomInteger(1, 4);
+                switch (num) {
+                    case 1:
+                        return 'ㅋㅋㅋㅋ';
+                        break;
+                    case 2:
+                        return '뀌요오오!!><';
+                        break;
+                    case 3:
+                        return 'ㅜㅜ';
+                        break;
+                    case 4:
+                        return '근데 꼴통언제와..ㅜㅜ';
+                        break;
+                }
+
             }
 
         }
 
+        function getRandomInteger(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
         function handleKeyPress(event) {
             // 'Enter' 키가 눌렸는지 확인합니다.
             if (event.key === 'Enter') {
@@ -85,17 +106,17 @@
 </head>
 
 <body>
-<div id="chat-wrapper" style="width: 470px">
+<div id="chat-wrapper">
     <header id="chat-header">
         <h1>부리뱜</h1>
     </header>
-    <div id="chat-container" class="chat-area" style="height: 450px;overflow: auto">
+    <div id="chat-container" class="chat-area" style="height: 900px;overflow: auto">
 
 
     </div>
-    <footer id="chat-footer" style="height: 1px">
-        <p class="">
-            <input type="textArea" id="content" style="width:80%;height: " onkeypress="handleKeyPress(event)"/>
+    <footer id="chat-footer">
+        <p class="text-area">
+            <input type="textArea" id="content" style="width:84%;height: 60px" onkeypress="handleKeyPress(event)"/>
 
             <button onclick="javascript:sendMsg();"> 보내기</button>
         </p>
@@ -104,4 +125,5 @@
 </div>
 </body>
 
+<script src="path/to/compiled-firebase-app.js"></script>
 </html>

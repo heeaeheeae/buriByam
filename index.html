@@ -23,7 +23,7 @@
     <script>
 
         function sendMsg(){
-// alert(document.getElementById('content').value);
+
             var content = document.getElementById('content').value;
 
             document.getElementById('content').value ='';
@@ -36,7 +36,7 @@
                 +'</div>';
 
             chatContent.innerHTML+=row;
-// chatContent.scrollTop = chatContent.scrollHeight+30;
+            chatContent.scrollTop = chatContent.scrollHeight+50;
             var answerContent = returnAnswer(content);
 
 
@@ -110,7 +110,7 @@
     <header id="chat-header">
         <h1>부리뱜</h1>
     </header>
-    <div id="chat-container" class="chat-area" style="height: 900px;overflow: auto">
+    <div id="chat-container" class="chat-area" style="height: 700px;overflow: auto">
 
 
     </div>
